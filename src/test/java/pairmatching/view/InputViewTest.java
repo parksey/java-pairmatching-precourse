@@ -28,8 +28,5 @@ public class InputViewTest {
         } catch (IOException exception) {
             throw new IllegalArgumentException("잘못 받았습니다.");
         }
-
-
-
     }
 }

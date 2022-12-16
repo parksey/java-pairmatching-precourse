@@ -5,5 +5,5 @@ public class PairSystem {
     private String level;
     private String mission;
 
-    private
+
 }

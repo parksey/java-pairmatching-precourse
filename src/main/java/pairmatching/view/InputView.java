@@ -1,5 +1,6 @@
 package pairmatching.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import pairmatching.util.CourseStatus;
 import pairmatching.util.FilePath;
 
@@ -14,6 +15,10 @@ public class InputView {
 
     public BufferedReader getFile(String path) throws IOException {
         return new BufferedReader(new FileReader(path));
+    }
+
+    private String getUserInput() {
+        return Console.readLine();
     }
 
     /**
@@ -53,4 +58,13 @@ public class InputView {
     }
 
 
+    public String readFunctionInput() {
+        String userInput = getUserInput();
+        checkFunctionInput(userInput);
+        return userInput;
+    }
+    public void checkFunctionInput(String userInput) {
+        InputException.nullException(userInput);
+        InputException.notFunctionException(userInput);
+    }
 }

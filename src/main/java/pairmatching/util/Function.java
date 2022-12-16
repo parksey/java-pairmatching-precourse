@@ -14,6 +14,14 @@ public enum Function {
         this.msg = msg;
     }
 
+    public static boolean isFunctionValues(String userInput) {
+        for (Function function : Function.values()) {
+            if (function.getSelect().equals(userInput)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public String getSelect() {
         return select;
