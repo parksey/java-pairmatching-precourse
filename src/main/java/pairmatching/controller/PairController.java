@@ -30,7 +30,7 @@ public class PairController {
     public void startProgram() {
         boolean isQuit = false;
         while (!isQuit) {
-            isQuit = doSelect(getUserSelect());
+            isQuit = isDoSelect(getUserSelect());
         }
     }
 
