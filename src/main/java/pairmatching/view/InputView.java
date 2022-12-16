@@ -3,6 +3,7 @@ package pairmatching.view;
 import camp.nextstep.edu.missionutils.Console;
 import pairmatching.util.CourseStatus;
 import pairmatching.util.FilePath;
+import pairmatching.util.PrintMsg;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -33,7 +34,7 @@ public class InputView {
     private List<String> readFile(String path) {
         try {
             bufferedReader = getFile(path);
-            List<String> userList = getUserList();
+            List<String> userList = readUserList();
             bufferedReader.close();
             return userList;
         } catch (IOException exception) {
@@ -41,7 +42,7 @@ public class InputView {
         }
     }
 
-    private List<String> getUserList() throws IOException{
+    public List<String> readUserList() throws IOException{
         List<String> userList = new ArrayList<>();
         String userInput;
         while ((userInput = bufferedReader.readLine()) != null) {
@@ -59,5 +60,18 @@ public class InputView {
     public void checkFunctionInput(String userInput) {
         InputException.nullException(userInput);
         InputException.notFunctionException(userInput);
+    }
+
+    public List<String> readPairInfo() {
+        String userInput = getUserInput();
+        return checkGetPairInfo(userInput);
+    }
+
+    public List<String> checkGetPairInfo(String userInput) {
+        InputException.nullException(userInput);
+        InputException.endWithCommaException(userInput);
+        List<String> userList = List.of(userInput.split(PrintMsg.COMMA.getMsg()));
+        InputException.notInputSizeException(userList);
+        return userList;
     }
 }

@@ -10,7 +10,6 @@ import java.util.List;
 public class PairDomain {
     private Courses courses;
     private Mission mission;
-    private Crews crews;
 
     public PairDomain() {
         mission = new Mission();
@@ -35,5 +34,9 @@ public class PairDomain {
     public void initCrews(List<String> backendUsers, List<String> frontendUsers) {
         courses.addCourse(CourseStatus.BACKEND.getStatus(), Crews.of(CourseStatus.BACKEND, backendUsers));
         courses.addCourse(CourseStatus.FRONTEND.getStatus(), Crews.of(CourseStatus.FRONTEND, frontendUsers));
+    }
+
+    public Mission getMission() {
+        return mission;
     }
 }

@@ -3,6 +3,7 @@ package pairmatching.controller;
 import pairmatching.domain.PairDomain;
 import pairmatching.util.CourseStatus;
 import pairmatching.util.Function;
+import pairmatching.util.PrintMsg;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
@@ -95,6 +96,8 @@ public class PairController {
 
 
     public void matchPair() {
-        outputView.printMsg();
+        outputView.printMatchInfo(pairDomain.getMission());
+        outputView.printMsg(PrintMsg.INPUT_MATCH.getMsg());
+
     }
 }

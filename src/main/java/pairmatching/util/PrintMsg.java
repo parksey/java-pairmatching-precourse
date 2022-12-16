@@ -5,6 +5,7 @@ public enum PrintMsg {
     DASH("  - "),
     COLONE(": "),
     BAR(" | "),
+    COMMA(", "),
     COURSE("과정: "),
     MISSION("미션:"),
     INPUT_SELECT("기능을 선택하세요."),
