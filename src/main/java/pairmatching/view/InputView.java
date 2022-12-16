@@ -1,5 +1,6 @@
 package pairmatching.view;
 
+import pairmatching.util.CourseStatus;
 import pairmatching.util.FilePath;
 
 import java.io.BufferedReader;
@@ -20,7 +21,7 @@ public class InputView {
      * @return
      */
     public List<String> getBackendList() {
-        return readFile(FilePath.BACKEND_PATH.getPath());
+        return readFile(FilePath.FILE_PATH.getPath(CourseStatus.BACKEND.getStatus()));
     }
 
     /**
@@ -28,7 +29,7 @@ public class InputView {
      * @return
      */
     public List<String> getFrontendList() {
-        return readFile(FilePath.FRONTEND_PATH.getPath());
+        return readFile(FilePath.FILE_PATH.getPath(CourseStatus.FRONTEND.getStatus()));
     }
 
     public List<String> readFile(String path) {
