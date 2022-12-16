@@ -18,4 +18,8 @@ public class OutputView {
             printMsg(function.getMsg());
         }
     }
+
+    public void printMatchInfo() {
+
+    }
 }

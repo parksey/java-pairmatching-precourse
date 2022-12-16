@@ -10,15 +10,13 @@ import java.util.List;
 public class PairDomain {
     private Courses courses;
     private Mission mission;
+    private Crews crews;
 
     public PairDomain() {
         mission = new Mission();
     }
 
-    public void initCourses() {
-        courses.addCourse(CourseStatus.BACKEND.getStatus());
-        courses.addCourse(CourseStatus.FRONTEND.getStatus());
-
+    public void initMission() {
         mission.addMission(Level.LEVEL1.getName()
                 , List.of(MissionNames.CAR_RACE.getName()
                         , MissionNames.LOTTO.getName()
@@ -32,5 +30,10 @@ public class PairDomain {
                 , List.of(MissionNames.REFACTOR.getName()
                         , MissionNames.BUILD.getName()));
         mission.addMission(Level.LEVEL5.getName(), List.of());
+    }
+
+    public void initCrews(List<String> backendUsers, List<String> frontendUsers) {
+        courses.addCourse(CourseStatus.BACKEND.getStatus(), Crews.of(CourseStatus.BACKEND, backendUsers));
+        courses.addCourse(CourseStatus.FRONTEND.getStatus(), Crews.of(CourseStatus.FRONTEND, frontendUsers));
     }
 }

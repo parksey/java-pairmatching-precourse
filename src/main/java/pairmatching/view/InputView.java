@@ -13,7 +13,7 @@ import java.util.List;
 public class InputView {
     private BufferedReader bufferedReader;
 
-    public BufferedReader getFile(String path) throws IOException {
+    private BufferedReader getFile(String path) throws IOException {
         return new BufferedReader(new FileReader(path));
     }
 
@@ -22,22 +22,15 @@ public class InputView {
     }
 
     /**
-     * 백엔드 파일 읽어 오기
+     * 백엔드, 프런트 파일 읽어 오기
      * @return
      */
-    public List<String> getBackendList() {
-        return readFile(FilePath.FILE_PATH.getPath(CourseStatus.BACKEND.getStatus()));
+    public List<String> getUserList(String path) {
+        return readFile(FilePath.FILE_PATH.getPath(path));
     }
 
-    /**
-     * 프런트 파일 읽어 오기
-     * @return
-     */
-    public List<String> getFrontendList() {
-        return readFile(FilePath.FILE_PATH.getPath(CourseStatus.FRONTEND.getStatus()));
-    }
 
-    public List<String> readFile(String path) {
+    private List<String> readFile(String path) {
         try {
             bufferedReader = getFile(path);
             List<String> userList = getUserList();
@@ -48,7 +41,7 @@ public class InputView {
         }
     }
 
-    public List<String> getUserList() throws IOException{
+    private List<String> getUserList() throws IOException{
         List<String> userList = new ArrayList<>();
         String userInput;
         while ((userInput = bufferedReader.readLine()) != null) {

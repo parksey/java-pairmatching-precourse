@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 public class Courses {
-    private List<String> courses;
+    private Map<String, Crews> courses;
 
     public Courses() {
-        courses = new ArrayList<>();
+        courses = new HashMap<>();
     }
 
-    public void addCourse(String course) {
-        courses.add(course);
+    public void addCourse(String course, Crews crews) {
+        courses.put(course, crews);
     }
 }

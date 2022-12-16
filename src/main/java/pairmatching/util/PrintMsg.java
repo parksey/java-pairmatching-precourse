@@ -1,7 +1,14 @@
 package pairmatching.util;
 
 public enum PrintMsg {
-    INPUT_SELECT("기능을 선택하세요.");
+    LINE("#############################################"),
+    DASH("  - "),
+    COLONE(": "),
+    BAR(" | "),
+    COURSE("과정: "),
+    MISSION("미션:"),
+    INPUT_SELECT("기능을 선택하세요."),
+    INPUT_MATCH("과정, 레벨, 미션을 선택하세요.");
     private final String msg;
 
     PrintMsg(String msg) {

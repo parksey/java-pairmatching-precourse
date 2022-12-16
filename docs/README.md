@@ -73,3 +73,8 @@ List<String> shuffledCrew = Randoms.shuffle(crewNames); // 섞인 크루 이름 
 - [ ] 과정, 레벨, 미션 읽기
   - [ ] `, `로 분리
   - [ ] 각 상태에 존재해야 한다.
+
+### 기능
+- [ ] 페어 매칭
+- [ ] 페어 조회
+- [ ] 페어 초기화

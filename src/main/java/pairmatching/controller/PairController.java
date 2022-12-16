@@ -1,9 +1,12 @@
 package pairmatching.controller;
 
 import pairmatching.domain.PairDomain;
+import pairmatching.util.CourseStatus;
 import pairmatching.util.Function;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
+
+import java.util.List;
 
 public class PairController {
     private final InputView inputView;
@@ -17,7 +20,18 @@ public class PairController {
     }
 
     public void initPair() {
-        pairDomain.initCourses();
+        pairDomain.initMission();
+        pairDomain.initCrews(getUserList(CourseStatus.BACKEND.getStatus())
+                , getUserList(CourseStatus.FRONTEND.getStatus()));
+
+    }
+    public List<String> getUserList(String path) {
+        try{
+            return inputView.getUserList(path);
+        } catch (IllegalArgumentException exception) {
+            outputView.printMsg(exception.getMessage());
+        }
+        return null;
     }
 
     public void start() {
@@ -81,6 +95,6 @@ public class PairController {
 
 
     public void matchPair() {
-
+        outputView.printMsg();
     }
 }
